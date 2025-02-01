@@ -1,0 +1,63 @@
+
+<div id = "cont-empleados">
+    <p>empleados works!</p>
+
+   
+    <!-- -->
+
+    <div *ngFor="let item of Empleado">
+        <table>
+            <tbody>
+                <tr>
+                    <td>{{item.id}}</td>
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.apellidos}}</td>
+                    <td>{{item.email}}</td>  
+                    <td><button data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="ver_empleado(item.id)">ver empleados</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>
+  
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Id</span>
+                <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="Id" [(ngModel)]="emple.id" id="identificacion">
+              </div>
+              
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon2">Nombre</span>
+                <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2" [(ngModel)]="nombres" [(ngModel)]="emple.nombre" id="nombres">
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Apellidos</span>
+                <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="apellidos" [(ngModel)]="emple.apellidos" id="apellidos">
+              </div>
+              
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon2">Correo</span>
+                <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2" [(ngModel)]="correo" [(ngModel)]="emple.email" id="email"> 
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="guardar()">Save changes</button>
+          <button type="button" class="btn btn-primary" (click)="eliminar()">Remove</button>
+          <button type="button" class="btn btn-primary" (click)="actualizar()">Actualizar</button>
+        </div>
+      </div>
+    </div>
+  </div>
